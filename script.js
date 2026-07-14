@@ -1,12 +1,17 @@
-
-function beforeSubmit(){
-    let hiddenElement = document.querySelector("#hiddenLead");
-    let actualInput = document.querySelector("#lead_date");
+let captha_value = false;
+function beforeSubmit(event){
+    if(captha_value){
+        let hiddenElement = document.querySelector("#hiddenLead");
+        let actualInput = document.querySelector("#lead_date");
     
-    let formattedDate = new Date(actualInput.value).toLocaleDateString("en-US");
+        let formattedDate = new Date(actualInput.value).toLocaleDateString("en-US");
 
-    console.log(formattedDate);
-    hiddenElement.value = formattedDate;
+        console.log(formattedDate);
+        hiddenElement.value = formattedDate;
+    }else{
+        alert("Please check the reCAPTCHA box to submit the lead");
+        event.preventDefault();
+    }
 }
 
 function timestamp() { 
@@ -18,3 +23,7 @@ function timestamp() {
     } 
 } 
 setInterval(timestamp, 500);
+
+function capthaSuccess(){
+    captha_value = true;
+}

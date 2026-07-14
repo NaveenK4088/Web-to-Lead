@@ -23,7 +23,9 @@
      <label for="lead_date">Lead Date</label>
      <input id="lead_date" type="date" required/>
     <input type="hidden"  id="lead_source" name="lead_source" value="Web" /><br>
-    <div class="g-recaptcha" data-sitekey="6LfRw1ItAAAAAMQ-viR8pKwv6k1caKpDXXPwkFIj"></div><br>
+    <div class="g-recaptcha"
+    data-callback = "capthaSuccess"
+    data-sitekey="6LfRw1ItAAAAAMQ-viR8pKwv6k1caKpDXXPwkFIj"></div><br>
     <input type="submit" name="submit" class="submit">
     <script src="./script.js"></script>
 </form>
